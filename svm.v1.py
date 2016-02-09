@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #!/usr/bin/python
 
 import csv
@@ -33,3 +34,6 @@ def balance_dataset(features, labels):
     return features[:balanced_count] + features[-balanced_count], labels[:balanced_count] + labels[-balanced_count:]
     
     
+=======
+dsvewdvdvdf
+>>>>>>> f91f29310bc5d2004a4195f47017a367bff1e439
