@@ -77,29 +77,21 @@ for C_parameter in [.1,.2,.3,.4,.5,.6,.7,.8,.9,1]:
     # average all the accuracy and store
     accuracy_avgs.append(sum(accuracy_raw) / len(accuracy_raw))
     # print "\rC_param: " + str(C_parameter) + " accuracy: " + str(accuracy_raw)
-print accuracy_avgs
+# print accuracy_avgs
 best_C_param = accuracy_avgs.index(max(accuracy_avgs))
-print best_C_param
-        # w = clf.coef_[0]
-        # a = -w[0] / w[1]
-        # xx = np.linespace(-5, 5)
-        # yy = a * xx - clf.intercept_[0] / w[1]
-        
-        
-#         print w
-# # # get the separating hyperplane using weighted classes
-# # wclf = svm.SVC(kernel='linear', class_weight={1: 10})
-# # wclf.fit(X, y)
-
-# # ww = wclf.coef_[0]
-# # wa = -ww[0] / ww[1]
-# # wyy = wa * xx - wclf.intercept_[0] / ww[1]
-
-# # # plot separating hyperplanes and samples
-# # h0 = plt.plot(xx, yy, 'k-', label='no weights')
-# # h1 = plt.plot(xx, wyy, 'k--', label='with weights')
-# # plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Paired)
-# # plt.legend()
-
-# # plt.axis('tight')
-# # plt.show()
+# print best_C_param
+      
+# train the model with all tes data and the best_C_param
+#--------------------------------------------------------     
+model = svm.SVC(kernel='linear', C=best_C_param)
+model.fit(X_train_feat_scaled,X_train_class)
+model_accuracy = model.score(X_test_feat_scaled,X_test_class)
+model_predict = model.predict(X_test_feat_scaled)
+      
+      
+      
+      
+      
+      
+      
+      
