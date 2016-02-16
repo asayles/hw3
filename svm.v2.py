@@ -24,7 +24,7 @@ Use results to create ROC using 200 evenly spaced thresholds
 """
 import numpy, sys
 import matplotlib.pyplot as plt
-from sklearn import svm
+from sklearn import svm, metrics
 from data_processing import magic_data_scaler as mds
 
 # get the data's
@@ -88,8 +88,9 @@ model.fit(X_train_feat_scaled,X_train_class)
 model_accuracy = model.score(X_test_feat_scaled,X_test_class)
 model_predict = model.predict(X_test_feat_scaled)
       
-      
-      
+# print some stuff
+#-------------------
+print metrics.classification_report(X_test_class, model_predict, target_names=['NotSoSpammy','Spamilicious'])     
       
       
       
